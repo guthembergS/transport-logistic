@@ -10,7 +10,7 @@ import { Transportadora } from './transportadora';
 export class AppComponent implements OnInit {
   title = 'angular-httpclient';
 
-  transportadora: Transportadora[] = [];
+  transportadoras: Transportadora[] = [];
   
   headers: any;
   spresp: any;
@@ -19,31 +19,31 @@ export class AppComponent implements OnInit {
   constructor(private api: ApiService) {}
 
   ngOnInit() {
-    this.getTransportadoras();
+     this.getTransportadoras();
   }
 
-
-  // getTransportadoras() {
-  //   this.api.getTransportadoras()
-  //   .subscribe(resp => {
-  //     console.log(resp);
-  //     const keys = resp.headers.keys();
-  //     this.headers = keys.map((key: any) =>
-  //       `${key}: ${resp.headers.get(key)}`);
-
-  //     for (const data of resp.body) {
-  //       this.transportadora.push(data);
-  //     }
-  //     console.log(this.transportadora);
-  //   });
-  // }
 
   getTransportadoras() {
     this.api.getTransportadoras()
-      .subscribe(data => {
-        console.log(data);
-      });
+    .subscribe(resp => {
+      console.log(resp);
+      const keys = resp.headers.keys();
+      this.headers = keys.map((key: any) =>
+        `${key}: ${resp.headers.get(key)}`);
+
+      for (const data of resp.body) {
+        this.transportadoras.push(data);
+      }
+      console.log(this.transportadoras);
+    });
   }
+
+  // getTransportadoras() {
+  //   this.api.getTransportadoras()
+  //     .subscribe(data => {
+  //       console.log(data);
+  //     });
+  // }
 
   getTransportadoraById(idTransportadora: any) {
     this.api.getTransportadoraById(idTransportadora)
