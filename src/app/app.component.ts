@@ -1,27 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './api.service';
 import { Transportadora } from './transportadora';
+import { Router } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
   title = 'angular-httpclient';
-
+  
   transportadoras: Transportadora[] = [];
   
   headers: any;
   spresp: any;
   postdata: Transportadora;
 
+  router: Router;
+
   constructor(private api: ApiService) {}
 
+  submitted = false;
+
+  onSubmit() { this.submitted = true; }
+
+
+
+  goFormTransportadora(idTransportadora: any){
+
+    this.router.navigate(["/",'transportadora-form']);
+  }
+  
   ngOnInit() {
      this.getTransportadoras();
   }
-
 
   getTransportadoras() {
     this.api.getTransportadoras()

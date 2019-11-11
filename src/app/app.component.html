@@ -1,15 +1,83 @@
-<div>
-  <table>
-    <tr>
-      <th>ID</th>
-      <th>Nome</th>
-      <th>Empresa</th>
-    </tr>
-    <tr *ngFor = "let transportadora of transportadoras">
-      <th>{{transportadora.idTransportadora}}</th>
-      <th>{{transportadora.nome}}</th>
-      <th>{{transportadora.empresa}}</th>
-    </tr>
-  </table>
 
-</div>
+    <div class="wrapper" id="listaTransportadoras">
+      <div class="title1"><h1>Transportadoras</h1></div>
+    <button onclick="goForm()">Cadastrar</button>
+    
+      <div class="box box1">Transportadoras</div>
+      <div class="box box2" >
+          <div class="wrapper2" *ngFor = "let transportadora of transportadoras">
+            <div class="box boxint1">
+              <p><a href="">{{transportadora.nome}}</a> - TIPO</p>
+            </div>
+            <div class="box boxint2">
+              <p>{{transportadora.telefone}}</p>
+              <p>{{transportadora.email}}</p>
+            </div>
+            <div class="box boxint3">
+              <p>Fale Agora {{transportadora.telefone}}</p>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div id="formTransportadora">
+      <div  class="wrapper" >
+        <h2>Cadastrar</h2>
+        <form>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" required>
+          </div>
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" required>
+          </div>
+          <div class="form-group">
+            <label for="empresa">Empresa</label>
+            <input type="text" class="form-control" id="empresa" required>
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="text" class="form-control" id="elefone" required>
+          </div>
+          <div class="form-group">
+            <label for="celular">Celular</label>
+            <input type="text" class="form-control" id="celular" required>
+          </div>
+          <div class="form-group">
+            <label for="whatsapp">Whatsapp</label>
+            <input type="text" class="form-control" id="whatsapp" required>
+          </div>
+          <div class="form-group">
+            <label for="modal">Modal</label>
+            <input type="text" class="form-control" id="modal" required>
+          </div>
+          <div class="form-group">
+            <label for="cep">Cep</label>
+            <input type="text" class="form-control" id="cep" required>
+          </div>
+          <div class="form-group">
+            <label for="estado">Estado</label>
+            <input type="text" class="form-control" id="estado" required>
+          </div>
+          <div class="form-group">
+            <label for="cidade">Cidade</label>
+            <input type="text" class="form-control" id="cidade" required>
+          </div>
+          <div class="form-group">
+            <label for="bairro">Bairro</label>
+            <input type="text" class="form-control" id="bairro" required>
+          </div>
+          <div class="form-group">
+            <label for="rua">Rua / Avenida</label>
+            <input type="text" class="form-control" id="rua" required>
+          </div>
+          <div class="form-group">
+            <label for="numero">Número</label>
+            <input type="text" class="form-control" id="numero" required>
+          </div>
+    
+          <button type="submit" class="btn btn-success">Submit</button>
+    
+        </form>
+      </div>
+    </div>
